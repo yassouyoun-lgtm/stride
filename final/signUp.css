@@ -1,0 +1,367 @@
+/* =============================================
+   Tokens
+   ============================================= */
+:root {
+  --black:        #0c0c0c;
+  --black-soft:   #161616;
+  --lime:         #d4f72c;
+  --lime-dim:     #aecb22;
+  --cream:        #f7f7f1;
+  --paper:        #ffffff;
+  --ink:          #14140f;
+  --line:         #e6e6dd;
+  --muted:        #8a8a7d;
+  --error:        #c4453a;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body:    'Work Sans', sans-serif;
+
+  --radius-lg: 28px;
+  --radius-sm: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(212, 247, 44, 0.18), transparent 45%),
+    radial-gradient(circle at 88% 85%, rgba(12, 12, 12, 0.06), transparent 40%);
+  font-family: var(--font-body);
+  color: var(--ink);
+  padding: 32px 16px;
+  background-color: black;
+}
+
+/* =============================================
+   Card shell
+   ============================================= */
+.card {
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 60px -25px rgba(12, 12, 12, 0.35);
+}
+
+/* =============================================
+   Left panel
+   ============================================= */
+.card__panel {
+  background: var(--black);
+  color: var(--cream);
+  padding: 56px 44px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--lime);
+  text-transform: uppercase;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 40px);
+  line-height: 1.12;
+  margin: 22px 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.subtext {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(247, 247, 241, 0.65);
+  max-width: 320px;
+  margin: 0 0 40px;
+}
+
+.perks-list {
+  list-style: none;
+  margin: 0;
+  padding: 22px 0 0;
+  border-top: 1px solid rgba(247, 247, 241, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.perks-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--cream);
+}
+
+.perks-list svg {
+  flex: none;
+  color: var(--lime);
+}
+
+.panel-mark {
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  width: 140px;
+  height: 140px;
+  color: rgba(212, 247, 44, 0.9);
+  opacity: 0.9;
+}
+
+/* =============================================
+   Right panel: form
+   ============================================= */
+.card__form {
+  background: var(--paper);
+  padding: 56px 48px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--lime-dim);
+  background: var(--paper);
+  box-shadow: 0 0 0 4px rgba(212, 247, 44, 0.28);
+}
+
+/* =============================================
+   Custom checkbox
+   ============================================= */
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  user-select: none;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox__box {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border: 1.5px solid var(--line);
+  border-radius: 5px;
+  background: var(--cream);
+  position: relative;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.checkbox__box::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid var(--black);
+  border-width: 0 2px 2px 0;
+  transform: rotate(40deg) scale(0);
+  transition: transform 0.15s ease;
+}
+
+.checkbox input:checked + .checkbox__box {
+  background: var(--lime);
+  border-color: var(--lime-dim);
+}
+
+.checkbox input:checked + .checkbox__box::after {
+  transform: rotate(40deg) scale(1);
+}
+
+.checkbox input:focus-visible + .checkbox__box {
+  outline: 2px solid var(--lime-dim);
+  outline-offset: 2px;
+}
+
+.checkbox__text a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--lime-dim);
+  text-underline-offset: 2px;
+}
+
+/* =============================================
+   Submit button
+   ============================================= */
+.submit-btn {
+  margin-top: 6px;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--lime);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14.5px;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 24px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.submit-btn:hover {
+  background: var(--lime-dim);
+  box-shadow: 0 10px 24px -10px rgba(170, 197, 30, 0.65);
+}
+
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+.submit-btn svg {
+  transition: transform 0.15s ease;
+}
+
+.submit-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.form-note {
+  min-height: 18px;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.form-note--success {
+  color: var(--lime-dim);
+  font-weight: 600;
+}
+
+.form-note--error {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.login-link {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.login-link a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--lime-dim);
+  text-underline-offset: 2px;
+}
+
+/* =============================================
+   Focus visibility (accessibility)
+   ============================================= */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--lime-dim);
+  outline-offset: 2px;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 760px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .card__panel,
+  .card__form {
+    padding: 40px 28px;
+  }
+
+  .panel-mark {
+    display: none;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

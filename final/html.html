@@ -1,0 +1,208 @@
+<!-- 
+  ============================================================
+  STRIDE — a sneaker shop
+  index.html (structure) + style.css (look & feel)
+  Comments explain what each tag is doing as you read.
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css.css">
+  
+  <link rel="icon" href="data:image/webp;base64,UklGRkgDAABXRUJQVlA4TDwDAAAvRsAJEE9mIG2b+Le97bcQYSBtW/x0T8cjAPEIEJcQCMQIIQwTiNMEEgIJBAZCEoCEQMbhAYGQRIQocQtM4oVsSbJN2+qtY9vG2sfXtm3btm2va9s8tq3d3zXnXFsn7nNE/ycAnrl/K4bEnXQsHwo2kxyY533rHDXvyJ7J3rbcUZW+jWTHSO9aOFCRijEk2WT3OLORef1lKYB/L0nWpXvYnpeJqll9pUkA8F5gWZxH7SKb5sim9PxLAIDMfxJ+D/eg7awkeXZqGjC+6088ACxup/JdkMds5Xnbik6SfYcmtv+KBRB8hUaf+nrIpsEdAKZS+jMGQPYfGr9j8YiN3QsARP2SfI8GgOtUDkp4wTZ7r6+71jaOBoD8rcK3KACI6SXZ8OTIorx0GVvIt3HuWfU3E6L5NckvkRB39u2bHAPR1CQT60a5Y9mrSEhXs//umQiIlq8ToH5hhL1rXLfkmh+kMc0dM6DUcmDwhKrFQfK8r4sWHjRDfrVhOFy7TNaxJ7D49iD5Nt4l81bA/ea8DbcaBi7EAUDO5X7WjXLB1EnwUFMElKmnu3vXODU8F94Ye6T9vK+x5Gh4acTeh/FGbL7w3uBF6QbUYSZViNVjAAvg5w9Au/Sn4c+1OVZg5ktd+T0U+3Tp/WMFACKu66cs8L+gi/dPTjcJh3Tlx2xgbDelVUsxkwZDsYHKvokAnvEogItU3vMBsIXqbOADb2b4xi7+0xOHkhGatoIs0rT5gVjPak3T8sZ94nNDjzXNPu6kgwclpZp0RgLQx1wACNwO6UTSF+J6lkJcxgZDNyEeZVuA8AMG6/n94Mpp6Sa4ynSOv12QSo4T/mVkZGTMleyktHS2C3q/ffv2vY7c7QJTDxcJ0lKJae3HLpIcKHZOXrvb4obWGzdu3HgssQHmmOEr63jcufLQUHsXN0B0JpUcJ/wAgGDJniyIl3nBuVIA29me7IrDbA8wILXWNO8t8I9Y1c3lrrF95SOToceaZh930sEDEEo16bCRKHxD+XObMxskGOHgMkPKWzaJej6AUac/11c+WmGDdKWuj5Ts0x+kAoi5p9+xI+K6fsoC/wu6eP/EFIiHdOVzYUgMGyr+PwE="
+  <meta name="description" content="Stride — sneakers built for speed.">
+  <title>Stride — Sneakers</title>
+
+  <!-- Loads two Google Fonts: a heavy condensed display face for
+       big headlines ("Archivo Black") and a clean sans for body
+       text and UI ("Inter"). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="shoe-style.css">
+</head>
+<body>
+
+  <!-- ======================= HEADER ======================= -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">STRIDE<span class="dot">.</span></a>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#shop" style="color: aliceblue;">Shop</a></li>
+          <li><a href="#about"  style="color: aliceblue;">Why Stride</a></li>
+          <li><a href="contact.html"  style="color: aliceblue;">Contact</a></li>
+          <li><a href="signUp.html"  style="color: aliceblue;">sign up</a></li>
+        </ul>
+      </nav>
+
+      <button class="cart-button" aria-label="View cart">
+        Cart <span class="cart-count"><img/png;base64,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></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======================= HERO ======================= -->
+  <!-- The hero uses a big diagonal "speed line" graphic behind the
+       headline — an SVG drawn straight into the page (no separate
+       image file needed) — to echo the idea of motion/running. -->
+  <section class="hero">
+    <!-- Decorative speed-line SVG. aria-hidden hides it from screen
+         readers since it carries no information, just visual flair. -->
+    <svg class="speed-lines" aria-hidden="true" viewBox="0 0 1200 500" preserveAspectRatio="none">
+      <line x1="0" y1="120" x2="1200" y2="20" />
+      <line x1="0" y1="220" x2="1200" y2="120" />
+      <line x1="0" y1="320" x2="1200" y2="220" />
+    </svg>
+
+    <div class="hero-inner">
+      <p class="eyebrow">NEW DROP — SS26</p>
+      <h1>Kick it up a notch<br>with STRIDE.</h1>
+      <p class="hero-sub">Performance sneakers and street icons, restocked weekly.</p>
+      <a href="#shop" class="btn btn-primary">Shop sneakers</a>
+    </div>
+  </section>
+
+  <main>
+    <!-- ======================= SHOP GRID ======================= -->
+    <section id="shop" class="shop-section">
+      <div class="section-heading">
+        <h2>Bestsellers</h2>
+        <p>Restocked every Thursday.</p>
+      </div>
+
+      <div class="product-grid">
+
+        <!-- ---------- SHOE CARD 1 ---------- -->
+        <article class="product-card">
+         <a href="html2.html"><div class="product-image-wrap">
+            <span class="tag tag-new">New</span>
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80"
+                 alt="White and orange low-top running sneaker"></a>
+          </div>
+          <div class="product-body">
+            <h3>Velocity Runner</h3>
+            <p class="product-desc">Lightweight knit upper, responsive foam sole.</p>
+
+            <!-- A row of size "pills" — this is real, useful info for
+                 shoes specifically, so it earns a place in the design. -->
+            <div class="sizes">
+              <span class="size">8</span>
+              <span class="size">9</span>
+              <span class="size">10</span>
+              <span class="size">11</span>
+            </div> ></a>
+
+            <div class="product-footer">
+              <span class="price">$129</span>
+              <button class="btn btn-small">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- SHOE CARD 2 ---------- -->
+        <article class="product-card">
+          <div class="product-image-wrap">
+           <a href="html3.html"> <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80"
+                 alt="Black high-top basketball sneaker"></a>
+          </div>
+          <div class="product-body">
+            <h3>Skyline High</h3>
+            <p class="product-desc">Court-ready high-top with ankle support.</p>
+            <div class="sizes">
+              <span class="size">8</span>
+              <span class="size">9</span>
+              <span class="size">10.5</span>
+              <span class="size">12</span>
+            </div>
+            <div class="product-footer">
+              <span class="price">$149</span>
+              <button class="btn btn-small">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- SHOE CARD 3 ---------- -->
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <span class="tag tag-low">Low stock</span>
+            <a href="html4.html"><img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=500&q=80"
+                 alt="Grey and volt yellow trail running sneaker"></a>
+          </div>
+          <div class="product-body">
+            <h3>Trailhead GTX</h3>
+            <p class="product-desc">Water-resistant trail shoe with grip lugs.</p>
+            <div class="sizes">
+              <span class="size">9</span>
+              <span class="size">10</span>
+              <span class="size">11</span>
+            </div>
+            <div class="product-footer">
+              <span class="price">$159</span>
+              <button class="btn btn-small">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- SHOE CARD 4 ---------- -->
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <a href="html5.html"><img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&q=80"
+                 alt="White minimalist leather sneaker"></a>
+          </div>
+          <div class="product-body">
+            <h3>Court Classic</h3>
+            <p class="product-desc">Clean leather sneaker, made for everyday wear.</p>
+            <div class="sizes">
+              <span class="size">7</span>
+              <span class="size">8</span>
+              <span class="size">9</span>
+              <span class="size">10</span>
+            </div>
+            <div class="product-footer">
+              <span class="price">$99</span>
+              <button class="btn btn-small">Add to cart</button>
+            </div>
+          </div>
+        </article>
+          <!-- ---------- SHOE CARD 4 ---------- -->
+       
+    
+
+    <!-- ======================= STATS / WHY STRIDE ======================= -->
+    <section id="about" class="stats-section">
+      <div class="stats-inner">
+        <div class="stat">
+          <span class="stat-number">42K+</span>
+          <span class="stat-label">Runners outfitted</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">30-day</span>
+          <span class="stat-label">Free returns</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">2-day</span>
+          <span class="stat-label">Shipping, nationwide</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Stride Footwear Co.</p>
+      <nav class="footer-nav">
+        <a href="#">Instagram</a>
+        <a href="#">Size guide</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
+
